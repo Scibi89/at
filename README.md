@@ -1,12 +1,12 @@
-This is base project created for candidate for technical interview.
+# This is base project created for candidate for technical interview.
 
-To run test run class RunTest
-or  
-using mvn:  
-mvn clean verify
+## Running the project
 
-Required:  
-Installed Chrome browser.  
-Java 11  
-Maven  
-Git 
+- Running **RunTest.java** with your favourite IDE
+- Use **mvn clean verify**
+
+## Requirements
+- Installed Chrome browser.
+- Java 11
+- Maven
+- Git 
