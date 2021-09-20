@@ -11,7 +11,7 @@
 - Running **RunTest.java** with your favourite IDE
 - Use **mvn clean verify**
 
-Database H2 connection
+## Database H2 connection
 When the application starts(AtApplication.class & Run) please search for the string in the application logs:
 
 H2 console available at '/h2-console'. Database available at
