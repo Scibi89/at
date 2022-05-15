@@ -4,12 +4,9 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-    strict = true,
-    monochrome = true,
-    features = {"src/test/features/Test.feature"},
-    plugin = {"pretty", "html:target/cukes"},
-    tags = {"@Selected"},
-    glue = {"com.functional.steps"})
-public class RunTest {
-
-}
+        monochrome = true,
+        features = {"src/test/features/"},
+        plugin = {"pretty", "html:target/cukes"},
+        tags = "@Selected",
+        glue = {"com.functional", "com.config"})
+public class RunTest {}

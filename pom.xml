@@ -20,11 +20,11 @@
 
   <properties>
     <java.version>11</java.version>
-    <webDriverManager.version>3.4.0</webDriverManager.version>
-    <cucumber.version>4.8.0</cucumber.version>
-    <selenium.version>3.141.59</selenium.version>
+    <webDriverManager.version>5.1.1</webDriverManager.version>
+    <cucumber.version>7.3.4</cucumber.version>
+    <selenium.version>4.1.1</selenium.version>
     <junit-jupiter.version>5.5.2</junit-jupiter.version>
-    <assertj.vavr>0.2.0</assertj.vavr>
+    <spotless.version>2.22.5</spotless.version>
   </properties>
 
   <build>
@@ -61,6 +61,47 @@
           <target>11</target>
         </configuration>
       </plugin>
+
+      <plugin>
+        <groupId>com.diffplug.spotless</groupId>
+        <artifactId>spotless-maven-plugin</artifactId>
+        <version>${spotless.version}</version>
+        <configuration>
+          <!-- optional: limit format enforcement to just the files changed by this feature branch -->
+          <ratchetFrom>origin/main</ratchetFrom>
+          <formats>
+            <!-- you can define as many formats as you want, each is independent -->
+            <format>
+              <!-- define the files to apply to -->
+              <includes>
+                <include>*.md</include>
+                <include>.gitignore</include>
+              </includes>
+              <!-- define the steps to apply to those files -->
+              <trimTrailingWhitespace/>
+              <endWithNewline/>
+              <indent>
+                <tabs>true</tabs>
+                <spacesPerTab>4</spacesPerTab>
+              </indent>
+            </format>
+          </formats>
+          <!-- define a language-specific format -->
+          <java>
+            <!-- no need to specify files, inferred automatically, but you can if you want -->
+
+            <!-- apply a specific flavor of google-java-format and reflow long strings -->
+            <googleJavaFormat>
+              <version>1.8</version>
+              <style>AOSP</style>
+              <reflowLongStrings>true</reflowLongStrings>
+            </googleJavaFormat>
+
+          </java>
+        </configuration>
+      </plugin>
+
+
     </plugins>
 
   </build>
@@ -117,14 +158,9 @@
       <version>${webDriverManager.version}</version>
     </dependency>
     <dependency>
-      <groupId>io.cucumber</groupId>
-      <artifactId>cucumber-spring</artifactId>
-      <version>${cucumber.version}</version>
-    </dependency>
-    <dependency>
       <groupId>net.masterthought</groupId>
       <artifactId>cucumber-reporting</artifactId>
-      <version>${cucumber.version}</version>
+      <version>5.7.0</version>
     </dependency>
     <dependency>
       <groupId>io.cucumber</groupId>
@@ -138,14 +174,34 @@
     </dependency>
     <dependency>
       <groupId>org.assertj</groupId>
-      <artifactId>assertj-vavr</artifactId>
-      <version>${assertj.vavr}</version>
+      <artifactId>assertj-core</artifactId>
+      <version>3.22.0</version>
+      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
+
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-java8</artifactId>
+      <version>${cucumber.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-spring</artifactId>
+      <version>${cucumber.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.diffplug.spotless</groupId>
+      <artifactId>spotless-maven-plugin</artifactId>
+      <version>${spotless.version}</version>
+    </dependency>
   </dependencies>
+
 
 
 </project>

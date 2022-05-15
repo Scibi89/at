@@ -10,24 +10,24 @@ import org.springframework.beans.factory.annotation.Value;
 @StoryProxyComponent
 public class MainPage {
 
-  private final DriverProvider driverProvider;
+    private final DriverProvider driverProvider;
 
-  @Value("${main.shoping.url.address}")
-  private String url;
+    @Value("${main.shoping.url.address}")
+    private String url;
 
-  @FindBy(className = "star-button-container")
-  private WebElement starButtonContainer;
+    @FindBy(className = "star-button-container")
+    private WebElement starButtonContainer;
 
-  public MainPage(final DriverProvider driverProvider) {
-    PageFactory.initElements(driverProvider.getDriver(), this);
-    this.driverProvider = driverProvider;
-  }
+    public MainPage(final DriverProvider driverProvider) {
+        PageFactory.initElements(driverProvider.getDriver(), this);
+        this.driverProvider = driverProvider;
+    }
 
-  public void open() {
-    driverProvider.getDriver().get(url);
-  }
+    public void open() {
+        driverProvider.getDriver().get(url);
+    }
 
-  public boolean isPageOpen(){
-    return starButtonContainer.isDisplayed();
-  }
+    public boolean isPageOpen() {
+        return starButtonContainer.isDisplayed();
+    }
 }
