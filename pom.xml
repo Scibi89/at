@@ -12,14 +12,13 @@
   </parent>
 
   <groupId>com.example</groupId>
-  <artifactId>at</artifactId>
+  <artifactId>base</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>at</name>
-  <description>Project for technical interview</description>
+  <name>base</name>
 
 
   <properties>
-    <java.version>11</java.version>
+    <java.version>17</java.version>
     <webDriverManager.version>5.1.1</webDriverManager.version>
     <cucumber.version>7.3.4</cucumber.version>
     <selenium.version>4.1.1</selenium.version>
@@ -67,8 +66,6 @@
         <artifactId>spotless-maven-plugin</artifactId>
         <version>${spotless.version}</version>
         <configuration>
-          <!-- optional: limit format enforcement to just the files changed by this feature branch -->
-          <ratchetFrom>origin/main</ratchetFrom>
           <formats>
             <!-- you can define as many formats as you want, each is independent -->
             <format>
@@ -92,7 +89,7 @@
 
             <!-- apply a specific flavor of google-java-format and reflow long strings -->
             <googleJavaFormat>
-              <version>1.8</version>
+              <version>1.15.0</version>
               <style>AOSP</style>
               <reflowLongStrings>true</reflowLongStrings>
             </googleJavaFormat>
@@ -103,7 +100,6 @@
 
 
     </plugins>
-
   </build>
 
   <dependencies>

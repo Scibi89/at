@@ -1,8 +1,8 @@
 # This is base project created for candidate for technical interview.
 
 ## Requirements
-- Installed Chrome browser.
-- Java 11
+- Installed the newest version of Chrome browser.
+- Java 17
 - Maven
 - Git
 

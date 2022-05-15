@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         monochrome = true,
         features = {"src/test/features/"},
-        plugin = {"pretty", "html:target/cukes"},
+        plugin = {"pretty", "html:target/cucumber.html"},
         tags = "@Selected",
         glue = {"com.functional", "com.config"})
 public class RunTest {}

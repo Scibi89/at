@@ -2,17 +2,22 @@
 package com.functional.pages;
 
 import com.config.StoryProxyComponent;
+import com.config.driver.DriverProvider;
+import org.springframework.beans.factory.annotation.Value;
 
 @StoryProxyComponent
 public class PageOpener {
 
-    private final MainPage mainPage;
+    @Value("${main.shoping.url.address}")
+    private String mainPageUrl;
 
-    public PageOpener(final MainPage mainPage) {
-        this.mainPage = mainPage;
+    private final DriverProvider driverProvider;
+
+    public PageOpener(final DriverProvider driverProvider) {
+        this.driverProvider = driverProvider;
     }
 
     public void openMainPage() {
-        mainPage.open();
+        driverProvider.getDriver().get(mainPageUrl);
     }
 }
