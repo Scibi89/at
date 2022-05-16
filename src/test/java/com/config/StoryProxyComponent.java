@@ -7,6 +7,4 @@ import org.springframework.stereotype.Component;
 @ProxyCucumberScope
 @Retention(RetentionPolicy.RUNTIME)
 @Component
-public @interface StoryProxyComponent {
-
-}
+public @interface StoryProxyComponent {}

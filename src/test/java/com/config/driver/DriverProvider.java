@@ -13,43 +13,45 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class DriverProvider {
 
-  private final Logger logger = LogManager.getLogger(getClass());
+    private final Logger logger = LogManager.getLogger(getClass());
 
-  private WebDriver driver;
-  private final Dimension hdResolution = new Dimension(1280, 720);
+    private WebDriver driver;
+    private final Dimension hdResolution = new Dimension(1280, 720);
 
-  public WebDriver getDriver() {
-    if (Objects.isNull(driver)) {
-      setupChromeDriver();
-      setupDriverAdditionalParameters();
-      driver.manage().window().setSize(hdResolution);
-      logger.info("Started chrome");
+    public WebDriver getDriver() {
+        if (Objects.isNull(driver)) {
+            setupChromeDriver();
+            setupDriverAdditionalParameters();
+            driver.manage().window().setSize(hdResolution);
+            logger.info("Started chrome");
+        }
+
+        return driver;
     }
 
-    return driver;
-  }
-
-  private void setupDriverAdditionalParameters() {
-    driver.manage().deleteAllCookies();
-    driver.manage().window().setPosition(new Point(0, 0));
-    driver.manage().timeouts().implicitlyWait(DriverConfig.MAX_OBJECT_TIMEOUT,
-        TimeUnit.SECONDS);
-    driver.manage().timeouts().pageLoadTimeout(DriverConfig.MAX_PAGE_LOAD_TIME,
-        TimeUnit.SECONDS);
-  }
-
-  private void setupChromeDriver() {
-    WebDriverManager.getInstance(ChromeDriver.class).setup();
-    driver = ChromeBrowser.setupDriver();
-  }
-
-  @PreDestroy
-  public void closeDriver() {
-    if (driver != null) {
-      driver.close();
-      driver.quit();
-      logger.info("Closed chrome driver");
-      driver = null;
+    private void setupDriverAdditionalParameters() {
+        driver.manage().deleteAllCookies();
+        driver.manage().window().setPosition(new Point(0, 0));
+        driver.manage()
+                .timeouts()
+                .implicitlyWait(DriverConfig.MAX_OBJECT_TIMEOUT, TimeUnit.SECONDS);
+        driver.manage()
+                .timeouts()
+                .pageLoadTimeout(DriverConfig.MAX_PAGE_LOAD_TIME, TimeUnit.SECONDS);
     }
-  }
+
+    private void setupChromeDriver() {
+        WebDriverManager.getInstance(ChromeDriver.class).setup();
+        driver = ChromeBrowser.setupDriver();
+    }
+
+    @PreDestroy
+    public void closeDriver() {
+        if (driver != null) {
+            driver.close();
+            driver.quit();
+            logger.info("Closed chrome driver");
+            driver = null;
+        }
+    }
 }

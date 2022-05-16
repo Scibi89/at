@@ -8,5 +8,6 @@ import org.junit.runner.RunWith;
         features = {"src/test/features/"},
         plugin = {"pretty", "html:target/cucumber.html"},
         tags = "@Selected",
-        glue = {"com.functional", "com.config"})
+        glue = {"com.functional", "com.config"},
+        publish = true)
 public class RunTest {}

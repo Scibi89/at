@@ -14,7 +14,11 @@ class ChromeBrowser {
 
     private static final Logger LOGGER = LogManager.getLogger(ChromeBrowser.class);
     private static final List<String> NO_HEADLESS_ARGUMENT_LIST =
-            Arrays.asList("--disable-infobars", "--disable-notifications");
+            Arrays.asList(
+                    "--no-sandbox",
+                    "--disable-infobars",
+                    "--disable-notifications",
+                    "--disable-dev-shm-usage");
 
     private ChromeBrowser() {
         throw new IllegalStateException("This class should not be instantiated!");

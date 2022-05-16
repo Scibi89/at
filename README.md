@@ -2,7 +2,7 @@
 
 ## Requirements
 - Installed the newest version of Chrome browser.
-- Java 17
+- Java 11
 - Maven
 - Git
 
@@ -10,6 +10,11 @@
 
 - Running **RunTest.java** with your favourite IDE
 - Use **mvn clean verify**
+
+# Docker
+To run execute:
+- docker build ./ base
+- docker compose up
 
 ## Database H2 connection
 When the application starts(AtApplication.class & Run) please search for the string in the application logs:

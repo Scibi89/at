@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Properties>
+        <Property name="log-path">target/logs</Property>
+    </Properties>
+    <Appenders>
+        <Console name="console-log" target="SYSTEM_OUT">
+            <PatternLayout pattern="[%level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%pid:%t] %c{1} - %msg%n"/>
+        </Console>
+
+        <File fileName="${log-path}/servicesTrace.log" name="services-trace-log">
+            <PatternLayout>
+              <pattern>[%level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%pid:%t] %c{1} - %msg%n</pattern>
+            </PatternLayout>
+        </File>
+        <File fileName="${log-path}/allModulesTrace.log" name="all-trace-log">
+            <PatternLayout>
+              <pattern>[%level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%pid:%t] %c{1} - %msg%n</pattern>
+            </PatternLayout>
+        </File>
+        <File fileName="${log-path}/allModulesError.log" name="all-error-log">
+            <PatternLayout>
+              <pattern>[%level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%pid:%t] %c{1} - %msg%n</pattern>
+            </PatternLayout>
+        </File>
+    </Appenders>
+    <Loggers>
+        <Logger additivity="false" level="TRACE" name="com.scibi">
+            <AppenderRef ref="console-log"/>
+            <appender-ref level="info" ref="services-trace-log"/>
+            <appender-ref level="info" ref="all-trace-log"/>
+            <appender-ref level="error" ref="all-error-log"/>
+        </Logger>
+
+        <logger name="com.zaxxer.hikari" level="info" additivity="false">
+            <appender-ref ref="console-log"/>
+        </logger>
+
+        <logger name="net.serenitybdd" level="info" additivity="false">
+            <appender-ref ref="console-log"/>
+        </logger>
+
+        <logger name="org.apache" level="ERROR" />
+        <logger name="httpclient" level="ERROR" />
+
+        <logger name="net.thucydides" level="info" additivity="false">
+            <appender-ref ref="console-log"/>
+        </logger>
+
+        <Root additivity="false" level="info">
+            <AppenderRef ref="console-log"/>
+        </Root>
+    </Loggers>
+</Configuration>

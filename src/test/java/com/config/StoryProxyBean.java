@@ -7,6 +7,4 @@ import org.springframework.context.annotation.Bean;
 @ProxyCucumberScope
 @Retention(RetentionPolicy.RUNTIME)
 @Bean
-public @interface StoryProxyBean {
-
-}
+public @interface StoryProxyBean {}

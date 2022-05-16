@@ -1,0 +1,16 @@
+version: '3.0'
+
+services:
+  scibi:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    image: base
+    ports:
+      - "9200:9200"
+    container_name: base
+    shm_size: 2g
+    volumes:
+      - "../at:/at"
+      - "../at/DockerTestResults:/DockerTestResults"
+
