@@ -2,15 +2,14 @@
 
 --changeset piotr:create_order_table
 create table orders (
-    id int primary key auto_increment,
-    fk_person int not null,
-    issued date not null,
-    value int not null,
-    foreign key (fk_person) references person(id)
+   id INTEGER primary key auto_increment,
+   fk_person INTEGER not null,
+   issued date not null,
+   val int not null
 );
 
 --changeset piotr:add_orders
-insert into orders (fk_person,issued, value) values
+insert into orders (fk_person,issued, val) values
 (1,CURRENT_TIMESTAMP,61),
 (1,CURRENT_TIMESTAMP,39),
 (1,CURRENT_TIMESTAMP,49),
