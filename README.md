@@ -1,8 +1,7 @@
-# This is base project created for candidate for technical interview.
 
-## Requirements
+## This is my own poc project to test new things, it requires
 - Installed the newest version of Chrome browser.
-- Java 11
+- Java 17
 - Maven
 - Git
 
