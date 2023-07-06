@@ -18,7 +18,8 @@ class ChromeBrowser {
                     "--no-sandbox",
                     "--disable-infobars",
                     "--disable-notifications",
-                    "--disable-dev-shm-usage");
+                    "--disable-dev-shm-usage",
+                    "--remote-allow-origins=*");
 
     private ChromeBrowser() {
         throw new IllegalStateException("This class should not be instantiated!");
