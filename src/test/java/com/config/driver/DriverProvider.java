@@ -1,15 +1,13 @@
 package com.config.driver;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
-import javax.annotation.PreDestroy;
+import jakarta.annotation.PreDestroy;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 public class DriverProvider {
 
@@ -41,7 +39,6 @@ public class DriverProvider {
     }
 
     private void setupChromeDriver() {
-        WebDriverManager.getInstance(ChromeDriver.class).setup();
         driver = ChromeBrowser.setupDriver();
     }
 

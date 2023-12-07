@@ -2,8 +2,8 @@ package com.functional.steps;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.functional.db.OrderRepository;
-import io.cucumber.java.en.Given;
+import com.example.at.data.OrderRepository;
+import io.cucumber.java.en.Then;
 
 public class DatabaseSteps {
 
@@ -13,8 +13,8 @@ public class DatabaseSteps {
         this.orderRepository = orderRepository;
     }
 
-    @Given("Orders are selectable")
-    public void customerIsOnMainPage() {
+    @Then("Orders are selectable")
+    public void ordersAreSelectable() {
         assertThat(orderRepository.loadAll()).isNotEmpty();
     }
 }
