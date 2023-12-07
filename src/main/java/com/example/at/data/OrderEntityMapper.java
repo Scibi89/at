@@ -1,9 +1,8 @@
 package com.example.at.data;
 
-import org.springframework.jdbc.core.RowMapper;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import org.springframework.jdbc.core.RowMapper;
 
 public class OrderEntityMapper implements RowMapper<OrderEntity> {
     @Override

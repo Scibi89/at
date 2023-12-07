@@ -1,12 +1,11 @@
 /* (C)2022 */
 package com.config.driver;
 
+import java.util.Arrays;
+import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-
-import java.util.Arrays;
-import java.util.List;
 
 class ChromeBrowser {
 

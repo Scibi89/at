@@ -1,11 +1,9 @@
 package com.example.at.data;
 
+import java.sql.Timestamp;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.sql.Date;
-import java.sql.Timestamp;
 
 @Data
 @AllArgsConstructor

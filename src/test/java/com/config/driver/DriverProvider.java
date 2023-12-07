@@ -1,8 +1,8 @@
 package com.config.driver;
 
+import jakarta.annotation.PreDestroy;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
-import jakarta.annotation.PreDestroy;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.Dimension;
